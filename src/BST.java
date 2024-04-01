@@ -176,6 +176,47 @@ public class BST {
      */
     public void insert(int val) {
         // TODO: Complete insert
+        if(!search(val))
+        {
+            BSTNode newValue = new BSTNode(val);
+            BSTNode compareValue = root;
+            BSTNode previousValue = null;
+            while(compareValue != null)
+            {
+                previousValue = compareValue;
+                compareValue = getNextNode(previousValue, newValue);
+            }
+            if(previousValue.getVal() < newValue.getVal())
+            {
+                previousValue.setRight(newValue);
+            }
+            else
+            {
+                previousValue.setLeft(newValue);
+            }
+        }
+    }
+
+    // Returns next node in the tree
+    public BSTNode getNextNode(BSTNode treeValue, BSTNode newValue)
+    {
+        if(treeValue == null)
+        {
+            return treeValue;
+        }
+        else if(treeValue.getVal() > newValue.getVal())
+        {
+            return treeValue.getLeft();
+        }
+        else if(treeValue.getVal() < newValue.getVal())
+        {
+            return treeValue.getRight();
+        }
+        else if(treeValue.getVal() == newValue.getVal())
+        {
+            return treeValue;
+        }
+        return null;
     }
 
     /**

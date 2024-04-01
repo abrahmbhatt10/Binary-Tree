@@ -57,7 +57,7 @@ public class BST {
         {
             return true;
         }
-        else if(val <= this.getRoot().getVal())
+        else if(val < this.getRoot().getVal())
         {
             return searchHelper(val, n.getLeft());
         }

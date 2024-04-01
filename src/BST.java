@@ -48,16 +48,47 @@ public class BST {
      */
     public boolean search(int val) {
         // TODO: Complete the search function
+        return searchHelper(val, root);
+    }
+
+    public boolean searchHelper(int val, BSTNode n)
+    {
+        if(val == n.getVal())
+        {
+            return true;
+        }
+        else if(val <= this.getRoot().getVal())
+        {
+            return searchHelper(val, n.getLeft());
+        }
+        else if (val > this.getRoot().getVal())
+        {
+            return searchHelper(val, n.getRight());
+        }
         return false;
     }
+
 
     /**
      * @return ArrayList of BSTNodes in inorder
      */
     public ArrayList<BSTNode> getInorder() {
         // TODO: Complete inorder traversal
-        return null;
+        ArrayList<Integer> returnedList = null;
+        return getInorderHelper(returnedList, root);
     }
+
+    public ArrayList<BSTNode> getInorderHelper(ArrayList<Integer> returnedList, BSTNode n)
+    {
+        if(!n.equals(null))
+        {
+            returnedList.add(root.getRight().getVal());
+            returnedList.add(root.getVal());
+            returnedList.add(root.getLeft().getVal());
+        }
+        return getInorderHelper(returnedList, n.getLeft());
+    }
+
 
     /**
      * @return ArrayList of BSTNodes in preorder

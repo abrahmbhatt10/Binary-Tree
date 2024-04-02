@@ -93,11 +93,11 @@ public class BST {
         {
             getPostorderHelper(returnedList, n.getLeft());
         }
-        else if(n != null)
+        if(n != null)
         {
             returnedList.add(n);
         }
-        else if(n != null && n.getRight() != null)
+        if(n != null && n.getRight() != null)
         {
             getPostorderHelper(returnedList, n.getRight());
         }
@@ -155,7 +155,7 @@ public class BST {
         {
             getPostorderHelper(returnedList, n.getLeft());
         }
-        else if(n != null && n.getRight() != null)
+        if(n != null && n.getRight() != null)
         {
             getPostorderHelper(returnedList, n.getRight());
         }

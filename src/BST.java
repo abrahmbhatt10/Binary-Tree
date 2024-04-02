@@ -258,14 +258,14 @@ public class BST {
         {
             return false;
         }
-        if(leftValue.getVal() < compareValue.getVal())
+        if(leftValue != null && leftValue.getVal() < compareValue.getVal())
         {
             if(!isValidBSTHelper(node.getLeft()))
             {
                 return false;
             }
         }
-        if(rightValue.getVal() > compareValue.getVal())
+        if(rightValue != null && rightValue.getVal() > compareValue.getVal())
         {
             if(!isValidBSTHelper(node.getRight()))
             {
@@ -304,5 +304,9 @@ public class BST {
         System.out.println("\nInorder traversal of binary tree is");
         sol = tree.getInorder();
         printNodes(sol);
+        if(tree.isValidBST())
+        {
+            System.out.println("It is valid BST");
+        }
     }
 }

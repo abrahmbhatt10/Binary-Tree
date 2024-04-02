@@ -53,15 +53,19 @@ public class BST {
 
     public boolean searchHelper(int val, BSTNode n)
     {
+        if(n == null)
+        {
+            return false;
+        }
         if(val == n.getVal())
         {
             return true;
         }
-        else if(val < this.getRoot().getVal())
+        else if(val < n.getVal())
         {
             return searchHelper(val, n.getLeft());
         }
-        else if (val > this.getRoot().getVal())
+        else if (val > n.getVal())
         {
             return searchHelper(val, n.getRight());
         }
@@ -74,7 +78,7 @@ public class BST {
      */
     public ArrayList<BSTNode> getInorder() {
         // TODO: Complete inorder traversal
-        ArrayList<BSTNode> returnedList = null;
+        ArrayList<BSTNode> returnedList = new ArrayList<BSTNode>();
         return getInorderHelper(returnedList, root);
     }
 
@@ -109,7 +113,7 @@ public class BST {
      */
     public ArrayList<BSTNode> getPreorder() {
         // TODO: Complete preorder traversal
-        ArrayList<BSTNode> returnedList = null;
+        ArrayList<BSTNode> returnedList = new ArrayList<BSTNode>();
         return getPreorderHelper(returnedList, root);
     }
 
@@ -141,7 +145,7 @@ public class BST {
      */
     public ArrayList<BSTNode> getPostorder() {
         // TODO: Complete postorder traversal
-        ArrayList<BSTNode> returnedList = null;
+        ArrayList<BSTNode> returnedList = new ArrayList<BSTNode>();
         return getPostorderHelper(returnedList, root);
     }
 
@@ -226,8 +230,38 @@ public class BST {
      */
     public boolean isValidBST() {
         // TODO: Optional Challenge!
-        return false;
+        return isValidBSTHelper(root);
     }
+
+    public boolean isValidBSTHelper(BSTNode n)
+    {
+        BSTNode compareValue = n;
+        if(n == null)
+        {
+            return true;
+        }
+        BSTNode leftValue = n.getLeft();
+        BSTNode rightValue = n.getRight();
+        if(leftValue != null && leftValue.getVal() >= n.getVal())
+        {
+            return false;
+        }
+        if(rightValue != null && rightValue.getVal() <= n.getVal())
+        {
+            return false;
+        }
+        if(leftValue.getVal() < compareValue.getVal())
+        {
+            return isValidBSTHelper(n.getLeft());
+        }
+        if(rightValue.getVal() > compareValue.getVal())
+        {
+            return isValidBSTHelper(n.getRight());
+        }
+        return true;
+    }
+
+
 
     public static void main(String[] args) {
         // Tree to help you test your code

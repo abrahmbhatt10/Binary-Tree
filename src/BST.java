@@ -79,20 +79,17 @@ public class BST {
     public ArrayList<BSTNode> getInorder() {
         // TODO: Complete inorder traversal
         ArrayList<BSTNode> returnedList = new ArrayList<BSTNode>();
-        return getInorderHelper(returnedList, root);
+        getInorderHelper(returnedList, root);
+        return returnedList;
     }
 
     // getInorder()
     // Return an ArrayList<BSTNode> that represents the Inorder Traversal of the tree.
     //
     // Inorder Traversal visits each node from Left → Root → Right
-    public ArrayList<BSTNode> getInorderHelper(ArrayList<BSTNode> returnedList, BSTNode n)
+    public void getInorderHelper(ArrayList<BSTNode> returnedList, BSTNode n)
     {
-        if(n == null)
-        {
-            return returnedList;
-        }
-        else if(n.getLeft() != null)
+        if(n != null && n.getLeft() != null)
         {
             getPostorderHelper(returnedList, n.getLeft());
         }
@@ -100,11 +97,10 @@ public class BST {
         {
             returnedList.add(n);
         }
-        else if(n.getRight() != null)
+        else if(n != null && n.getRight() != null)
         {
             getPostorderHelper(returnedList, n.getRight());
         }
-        return returnedList;
     }
 
 
@@ -114,29 +110,28 @@ public class BST {
     public ArrayList<BSTNode> getPreorder() {
         // TODO: Complete preorder traversal
         ArrayList<BSTNode> returnedList = new ArrayList<BSTNode>();
-        return getPreorderHelper(returnedList, root);
+        getPreorderHelper(returnedList, root);
+        return returnedList;
     }
 
     // getPreorder()
     // Return an ArrayList<BSTNode> that represents the Preorder Traversal of the tree.
     //
     // Preorder Traversal visits each node from Root → Left → Right
-    public ArrayList<BSTNode> getPreorderHelper(ArrayList<BSTNode> returnedList, BSTNode n)
+    public void getPreorderHelper(ArrayList<BSTNode> returnedList, BSTNode n)
     {
-        if(n == null)
+        if(n != null)
         {
-            return returnedList;
+            returnedList.add(n);
         }
-        returnedList.add(n);
-        if(n.getLeft()!= null)
+        if(n != null && n.getLeft()!= null)
         {
-            return getPreorderHelper(returnedList, n.getLeft());
+            getPreorderHelper(returnedList, n.getLeft());
         }
-        if(n.getRight() != null)
+        if(n != null && n.getRight() != null)
         {
-            return getPreorderHelper(returnedList, n.getRight());
+            getPreorderHelper(returnedList, n.getRight());
         }
-        return returnedList;
     }
 
 
@@ -146,29 +141,25 @@ public class BST {
     public ArrayList<BSTNode> getPostorder() {
         // TODO: Complete postorder traversal
         ArrayList<BSTNode> returnedList = new ArrayList<BSTNode>();
-        return getPostorderHelper(returnedList, root);
+        getPostorderHelper(returnedList, root);
+        return returnedList;
     }
 
     //getPostorder()
     //Return an ArrayList<BSTNode> that represents the Postorder Traversal of the tree.
     //
     //Postorder Traversal visits each node from Left → Right → Root
-    public ArrayList<BSTNode> getPostorderHelper(ArrayList<BSTNode> returnedList, BSTNode n)
+    public void getPostorderHelper(ArrayList<BSTNode> returnedList, BSTNode n)
     {
-        if(n == null)
-        {
-            return returnedList;
-        }
-        else if(n.getLeft() != null)
+        if(n!= null && n.getLeft() != null)
         {
             getPostorderHelper(returnedList, n.getLeft());
         }
-        else if(n.getRight() != null)
+        else if(n != null && n.getRight() != null)
         {
             getPostorderHelper(returnedList, n.getRight());
         }
         returnedList.add(n);
-        return returnedList;
     }
 
 

@@ -260,11 +260,17 @@ public class BST {
         }
         if(leftValue.getVal() < compareValue.getVal())
         {
-            return isValidBSTHelper(node.getLeft());
+            if(!isValidBSTHelper(node.getLeft()))
+            {
+                return false;
+            }
         }
         if(rightValue.getVal() > compareValue.getVal())
         {
-            return isValidBSTHelper(node.getRight());
+            if(!isValidBSTHelper(node.getRight()))
+            {
+                return false;
+            }
         }
         return true;
     }

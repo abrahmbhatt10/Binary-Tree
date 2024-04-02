@@ -304,9 +304,5 @@ public class BST {
         System.out.println("\nInorder traversal of binary tree is");
         sol = tree.getInorder();
         printNodes(sol);
-        if(tree.isValidBST())
-        {
-            System.out.println("It is valid BST");
-        }
     }
 }

@@ -51,23 +51,26 @@ public class BST {
         return searchHelper(val, root);
     }
 
-    public boolean searchHelper(int val, BSTNode n)
+    // Write the method search(int val)
+    // Returns true if val is in the tree and false otherwise.
+    // You should use a helper method and recursion for this.
+    public boolean searchHelper(int val, BSTNode node)
     {
-        if(n == null)
+        if(node == null)
         {
             return false;
         }
-        if(val == n.getVal())
+        if(val == node.getVal())
         {
             return true;
         }
-        else if(val < n.getVal())
+        else if(val < node.getVal())
         {
-            return searchHelper(val, n.getLeft());
+            return searchHelper(val, node.getLeft());
         }
-        else if (val > n.getVal())
+        else if (val > node.getVal())
         {
-            return searchHelper(val, n.getRight());
+            return searchHelper(val, node.getRight());
         }
         return false;
     }
@@ -87,19 +90,19 @@ public class BST {
     // Return an ArrayList<BSTNode> that represents the Inorder Traversal of the tree.
     //
     // Inorder Traversal visits each node from Left → Root → Right
-    public void getInorderHelper(ArrayList<BSTNode> returnedList, BSTNode n)
+    public void getInorderHelper(ArrayList<BSTNode> returnedList, BSTNode node)
     {
-        if(n != null && n.getLeft() != null)
+        if(node != null && node.getLeft() != null)
         {
-            getPostorderHelper(returnedList, n.getLeft());
+            getPostorderHelper(returnedList, node.getLeft());
         }
-        if(n != null)
+        if(node != null)
         {
-            returnedList.add(n);
+            returnedList.add(node);
         }
-        if(n != null && n.getRight() != null)
+        if(node != null && node.getRight() != null)
         {
-            getPostorderHelper(returnedList, n.getRight());
+            getPostorderHelper(returnedList, node.getRight());
         }
     }
 
@@ -118,19 +121,19 @@ public class BST {
     // Return an ArrayList<BSTNode> that represents the Preorder Traversal of the tree.
     //
     // Preorder Traversal visits each node from Root → Left → Right
-    public void getPreorderHelper(ArrayList<BSTNode> returnedList, BSTNode n)
+    public void getPreorderHelper(ArrayList<BSTNode> returnedList, BSTNode node)
     {
-        if(n != null)
+        if(node != null)
         {
-            returnedList.add(n);
+            returnedList.add(node);
         }
-        if(n != null && n.getLeft()!= null)
+        if(node != null && node.getLeft()!= null)
         {
-            getPreorderHelper(returnedList, n.getLeft());
+            getPreorderHelper(returnedList, node.getLeft());
         }
-        if(n != null && n.getRight() != null)
+        if(node != null && node.getRight() != null)
         {
-            getPreorderHelper(returnedList, n.getRight());
+            getPreorderHelper(returnedList, node.getRight());
         }
     }
 
@@ -149,17 +152,17 @@ public class BST {
     //Return an ArrayList<BSTNode> that represents the Postorder Traversal of the tree.
     //
     //Postorder Traversal visits each node from Left → Right → Root
-    public void getPostorderHelper(ArrayList<BSTNode> returnedList, BSTNode n)
+    public void getPostorderHelper(ArrayList<BSTNode> returnedList, BSTNode node)
     {
-        if(n!= null && n.getLeft() != null)
+        if(node!= null && node.getLeft() != null)
         {
-            getPostorderHelper(returnedList, n.getLeft());
+            getPostorderHelper(returnedList, node.getLeft());
         }
-        if(n != null && n.getRight() != null)
+        if(node != null && node.getRight() != null)
         {
-            getPostorderHelper(returnedList, n.getRight());
+            getPostorderHelper(returnedList, node.getRight());
         }
-        returnedList.add(n);
+        returnedList.add(node);
     }
 
 
@@ -224,30 +227,30 @@ public class BST {
         return isValidBSTHelper(root);
     }
 
-    public boolean isValidBSTHelper(BSTNode n)
+    public boolean isValidBSTHelper(BSTNode node)
     {
-        BSTNode compareValue = n;
-        if(n == null)
+        BSTNode compareValue = node;
+        if(node == null)
         {
             return true;
         }
-        BSTNode leftValue = n.getLeft();
-        BSTNode rightValue = n.getRight();
-        if(leftValue != null && leftValue.getVal() >= n.getVal())
+        BSTNode leftValue = node.getLeft();
+        BSTNode rightValue = node.getRight();
+        if(leftValue != null && leftValue.getVal() >= node.getVal())
         {
             return false;
         }
-        if(rightValue != null && rightValue.getVal() <= n.getVal())
+        if(rightValue != null && rightValue.getVal() <= node.getVal())
         {
             return false;
         }
         if(leftValue.getVal() < compareValue.getVal())
         {
-            return isValidBSTHelper(n.getLeft());
+            return isValidBSTHelper(node.getLeft());
         }
         if(rightValue.getVal() > compareValue.getVal())
         {
-            return isValidBSTHelper(n.getRight());
+            return isValidBSTHelper(node.getRight());
         }
         return true;
     }

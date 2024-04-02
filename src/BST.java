@@ -2,8 +2,8 @@ import java.util.ArrayList;
 
 /**
  * An Integer Binary Search Tree
- * @author: Your Name Here
- * @version: Date
+ * @author: Agastya Brahmbhatt
+ * @version: 3/5/2024
  */
 
 public class BST {
@@ -51,9 +51,9 @@ public class BST {
         return searchHelper(val, root);
     }
 
-    // Write the method search(int val)
+    // This is the method that searches for a val in binary tree.
     // Returns true if val is in the tree and false otherwise.
-    // You should use a helper method and recursion for this.
+    // It uses a helper method and recursion for this.
     public boolean searchHelper(int val, BSTNode node)
     {
         if(node == null)
@@ -86,10 +86,10 @@ public class BST {
         return returnedList;
     }
 
-    // getInorder()
-    // Return an ArrayList<BSTNode> that represents the Inorder Traversal of the tree.
+    // This is the helper function for getInorder()
+    // Returns void to update returnedList seperately.
     //
-    // Inorder Traversal visits each node from Left → Root → Right
+    // Inorder Traversal visits each node from Left to Root to Right
     public void getInorderHelper(ArrayList<BSTNode> returnedList, BSTNode node)
     {
         if(node != null && node.getLeft() != null)
@@ -117,10 +117,10 @@ public class BST {
         return returnedList;
     }
 
-    // getPreorder()
-    // Return an ArrayList<BSTNode> that represents the Preorder Traversal of the tree.
+    // This is the helper function for getPreorder()
+    // Returns void that represents the Preorder Traversal of the tree and updates parameter pointer.
     //
-    // Preorder Traversal visits each node from Root → Left → Right
+    // Preorder Traversal visits each node from Root to Left to Right
     public void getPreorderHelper(ArrayList<BSTNode> returnedList, BSTNode node)
     {
         if(node != null)
@@ -148,10 +148,11 @@ public class BST {
         return returnedList;
     }
 
-    //getPostorder()
-    //Return an ArrayList<BSTNode> that represents the Postorder Traversal of the tree.
-    //
-    //Postorder Traversal visits each node from Left → Right → Root
+    // This is the helper method for getPostorder() which begins at the root
+    // Returns void that represents the Postorder Traversal of the tree and updates parameter pointer.
+    // The two parameters are returnedList, the arraylist representing the ordered list
+    // It also represents the recursive node parameter.
+    // Postorder Traversal visits each node from Left to Right to Root
     public void getPostorderHelper(ArrayList<BSTNode> returnedList, BSTNode node)
     {
         if(node!= null && node.getLeft() != null)
@@ -172,9 +173,11 @@ public class BST {
      * root instance variable to be the root of the new modified tree.
      * @param val The value ot insert
      */
-    //Write a function insert(int val) which, given an integer value, creates a BSTNode with that value and inserts it into the proper location in the Binary Search Tree.
-    //
-    //Testing: Use your traversal methods from the previous section to print the Nodes of your tree and verify that your new Node is in the proper position.
+    //This is a function insert(int val) which begins at the root
+    // Given an integer value, this creates a BSTNode value
+    // This inserts it into the proper location in the Binary Search Tree.
+    //Testing: Use your traversal methods from the previous section to print the Nodes of your tree
+    // This verifies that my new Node is in the proper position.
     public void insert(int val) {
         // TODO: Complete insert
         if(!search(val))

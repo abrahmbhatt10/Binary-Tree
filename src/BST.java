@@ -172,6 +172,9 @@ public class BST {
      * root instance variable to be the root of the new modified tree.
      * @param val The value ot insert
      */
+    //Write a function insert(int val) which, given an integer value, creates a BSTNode with that value and inserts it into the proper location in the Binary Search Tree.
+    //
+    //Testing: Use your traversal methods from the previous section to print the Nodes of your tree and verify that your new Node is in the proper position.
     public void insert(int val) {
         // TODO: Complete insert
         if(!search(val))
@@ -227,6 +230,14 @@ public class BST {
         return isValidBSTHelper(root);
     }
 
+
+    // Write a method, isBST(), that determines whether or not the tree is a valid Binary Search Tree.
+    //
+    //You may need the following:
+    //		Integer.MAX_VALUE
+    //		Integer.MIN_VALUE
+    //
+    //In a BST, everything to the left of a node is less than it and everything to the right of a node is greater than it.
     public boolean isValidBSTHelper(BSTNode node)
     {
         BSTNode compareValue = node;
